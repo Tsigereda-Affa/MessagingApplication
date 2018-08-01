@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<a href="/add">Add a Message</a><br />
+<table>
+    <tr>
+        <th>Content</th>
+        <th>Posted Date</th>
+        <th>Image URL</th>
+        <th>Sent By</th>
+        <td>Action</td>
+    </tr>
+    <tr th:each="message :${message}">
+        <td th:text="${message.title}"></td>
+        <td th:text="${message.instructor}"></td>
+        <td th:text="${message.credit}"></td>
+        <td>
+            <a th:href="@{/update/{id}(id=${course.id})}">Update</a>
+            <a th:href="@{/detail/{id}(id=${course.id})}">Details</a>
+            <a th:href="@{/delete/{id}(id=${course.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
