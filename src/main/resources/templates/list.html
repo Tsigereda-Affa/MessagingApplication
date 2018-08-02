@@ -6,22 +6,22 @@
 </head>
 <body>
 <a href="/add">Add a Message</a><br />
-<table>
+<table border="1">
     <tr>
         <th>Content</th>
         <th>Posted Date</th>
         <th>Image URL</th>
         <th>Sent By</th>
-        <td>Action</td>
+        <th>Actions</th>
     </tr>
-    <tr th:each="message :${message}">
-        <td th:text="${message.title}"></td>
-        <td th:text="${message.instructor}"></td>
-        <td th:text="${message.credit}"></td>
+    <tr th:each="message :${messages}">
+        <td th:text="${message.content}"></td>
+        <td th:text="${message.posteddate}"></td>
+        <td> <img th:src="${message.imageurl}" width="50" height="60"></td>
+        <td th:text="${message.sentby}"></td>
         <td>
-            <a th:href="@{/update/{id}(id=${course.id})}">Update</a>
-            <a th:href="@{/detail/{id}(id=${course.id})}">Details</a>
-            <a th:href="@{/delete/{id}(id=${course.id})}">Delete</a>
+            <a th:href="@{/update/{id}(id=${message.id})}">Update</a>
+            <a th:href="@{/detail/{id}(id=${message.id})}">Details</a>
         </td>
     </tr>
 </table>
