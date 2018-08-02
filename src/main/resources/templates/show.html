@@ -10,6 +10,6 @@ Content :<span th:text="${message.content}" ></span><br />
 Posted Date :<span th:text="${message.posteddate}" ></span><br />
 Image URL :<span th:text="${message.imageurl}" ></span>
 Sent By:<span th:text="${message.sentby}" ></span><br />
-
+<a th:href="@{/delete/{id}(id=${message.id})}">Delete this course</a>
 </body>
 </html>

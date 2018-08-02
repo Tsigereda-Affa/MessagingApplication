@@ -48,4 +48,9 @@ public class HomeController {
         model.addAttribute("message", messageRepository.findById(id).get());
         return "messageform";
     }
+    @RequestMapping("/delete/{id}")
+    public String delCourse(@PathVariable("id") long id){
+        messageRepository.deleteById(id);
+        return "redirect:/";
+    }
 }
